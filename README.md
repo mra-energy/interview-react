@@ -5,6 +5,7 @@
 - Save list to local storage
 - Sync between tabs
 - Add a checkbox to choose when syncing
+- Assume the sync between tabs is a heavy operation and adapt your current setup accordingly
 
 ## Ressources
 

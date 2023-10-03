@@ -1,23 +1,16 @@
-import { useState, useRef } from 'react';
-import useLocalState from './useLocalState';
+import { useState } from 'react';
 
 type Todo = { text: string; done: boolean };
 
 export const App = () => {
   const [text, setText] = useState('');
-  const withSync = useRef(true);
-  const [todos, setTodos] = useLocalState<Todo[]>('todo-values', withSync, []);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   return (
     <div
       style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
     >
       <h1>Todos:</h1>
-      <input
-        type="checkbox"
-        onChange={() => (withSync.current = !withSync.current)}
-        checked={withSync.current}
-      />
       <ul>
         {todos.map((todo, index) => (
           <li key={index} style={{ margin: '8px' }}>
